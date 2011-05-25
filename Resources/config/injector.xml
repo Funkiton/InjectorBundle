@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="funkiton_injector.controller_parser.class">Funkiton\InjectorBundle\Service\ControllerParser</parameter>
+        <parameter key="funkiton_injector.helper.class">Funkiton\InjectorBundle\Service\Helper</parameter>
+        <parameter key="funkiton_injector.injector.class">Funkiton\InjectorBundle\Service\Injector</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="funkiton_injector.helper" class="%funkiton_injector.helper.class%">
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="funkiton_injector.injector" class="%funkiton_injector.injector.class%">
+            <argument /> <!-- definitions -->
+            <argument type="service" id="service_container" />
+        </service>
+
+        <service id="funkiton_injector.controller_parser" class="%funkiton_injector.controller_parser.class%">
+            <tag name="kernel.listener" event="onCoreController" />
+            <argument type="service" id="funkiton_injector.injector" />
+            <argument type="service" id="annotation_reader" />
+            <argument type="service" id="funkiton_injector.helper" />
+        </service>
+
+    </services>
+
+</container>
