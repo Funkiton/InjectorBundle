@@ -22,7 +22,7 @@
         </service>
 
         <service id="funkiton_injector.controller_parser" class="%funkiton_injector.controller_parser.class%">
-            <tag name="kernel.listener" event="onCoreController" />
+            <tag name="kernel.listener" event="core.controller" method="onCoreController" />
             <argument type="service" id="funkiton_injector.injector" />
             <argument type="service" id="annotation_reader" />
             <argument type="service" id="funkiton_injector.helper" />
