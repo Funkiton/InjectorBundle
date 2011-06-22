@@ -50,7 +50,7 @@ class ControllerParser
      *
      * @param FilterControllerEvent $event A FilterControllerEvent instance
      */
-    public function onCoreController(FilterControllerEvent $event)
+    public function onKernelController(FilterControllerEvent $event)
     {
         if (!is_array($controller = $event->getController())) {
             return;
