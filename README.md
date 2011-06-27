@@ -1,3 +1,22 @@
+Important notice
+================
+
+This bundle was created to facilitate simple need I had.
+
+It has come to my attention that there are multiple alternatives
+implementing the same functionality but with much more care and vision:
+
+* https://github.com/loicfrering/LosoBundle
+* https://github.com/joshiausdemwald/AutowiringBundle
+* https://github.com/schmittjoh/DiExtraBundle
+
+So take this bundle as a simple example and not something production-ready.
+
+Although I myself am still using my own bundle, it's only because none of the above
+(AFAICS) support service_name::somemethod syntax for injections (and configurable overrides)
+which I happen to find very useful and convenient.
+
+
 Introduction
 ============
 
