@@ -58,10 +58,17 @@ class ControllerParser
 
         $class = new \ReflectionClass($controller[0]);
 
-        foreach ($this->reader->getClassAnnotations($class) as $configuration) {
-            if ($configuration instanceof InjectInterface) {
-                $configuration->inject($this->injector, $controller[0]);
+        $configs = array();
+        while (false !== $class) {
+            foreach ($this->reader->getClassAnnotations($class) as $configuration) {
+                if ($configuration instanceof InjectInterface && !isset($configs[$configuration->getName()])) {
+                    $configs[$configuration->getName()] = $configuration;
+                }
             }
+            $class = $class->getParentClass();
+        }
+        foreach ($configs as $configuration) {
+            $configuration->inject($this->injector, $controller[0]);
         }
     }
 }

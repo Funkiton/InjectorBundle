@@ -27,4 +27,8 @@ interface InjectInterface
      * @param object $targetObject The target object receiving the injection
      */
     function inject(Injector $injector, $targetObject);
+    
+    function getName();
+    
+    function getService();
 }

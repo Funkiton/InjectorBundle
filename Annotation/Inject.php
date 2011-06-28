@@ -51,4 +51,20 @@ class Inject implements InjectInterface
     {
         $injector->inject($this->name, $this->service, $object);
     }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function getName() 
+    {
+        return $this->name;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getService() 
+    {
+        return $this->service;
+    }
 }
