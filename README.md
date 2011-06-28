@@ -86,7 +86,20 @@ Optionally define the visibility level of properties as usual:
         protected $session;
     }
 
-Now you should be able to access injected services by ```$this->service_name```.
+Or you can add the annotation right before property definition:
+
+     * ...
+     */
+    class MyController 
+    {
+	/** @TryInject("user") */
+        private $user;
+
+	/** @Inject("request::getSession"); */
+        protected $session;
+    }
+
+Now you should be able to access injected services by ```$this->property_name```.
 
 
 Annotation types

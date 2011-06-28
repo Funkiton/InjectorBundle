@@ -29,6 +29,8 @@ interface InjectInterface
     function inject(Injector $injector, $targetObject);
     
     function getName();
+
+    function setName($name);
     
     function getService();
 }

@@ -60,6 +60,15 @@ class ControllerParser
 
         $configs = array();
         while (false !== $class) {
+            foreach ($class->getProperties() as $property) {
+                foreach ($this->reader->getPropertyAnnotations($property) as $configuration) {
+                    if ($configuration instanceof InjectInterface && !isset($configs[$configuration->getName()])) {
+                        $configuration->setName($property->getName());
+                        $configs[$configuration->getName()] = $configuration;
+                    }
+                    
+                }
+            }
             foreach ($this->reader->getClassAnnotations($class) as $configuration) {
                 if ($configuration instanceof InjectInterface && !isset($configs[$configuration->getName()])) {
                     $configs[$configuration->getName()] = $configuration;
