@@ -18,6 +18,8 @@ use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
  * The @Inject annotation
  *
  * @author Lenar Lõhmus <lenar@city.ee>
+ *
+ * @Annotation
  */
 class Inject implements InjectInterface
 {

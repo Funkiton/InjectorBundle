@@ -18,6 +18,8 @@ use Symfony\Component\DependencyInjection\Exception\ExceptionInterface;
  * The @TryInject annotation
  *
  * @author Lenar Lõhmus <lenar@city.ee>
+ *
+ * @Annotation
  */
 class TryInject extends Inject
 {
