@@ -58,9 +58,8 @@ class Helper
 
     public function getUser()
     {
-        $user = $this->getToken()->getUser();
-        if (!is_object($user))
-        {
+        $token = $this->getToken();
+        if (!is_object($token) || !is_object($user = $token->getUser())) {
             throw new RuntimeException('User is not available');
         }
         return $user;
